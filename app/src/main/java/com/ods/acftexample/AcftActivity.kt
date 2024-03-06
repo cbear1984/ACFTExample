@@ -61,23 +61,6 @@ fun AcftApp(
     var personal by remember { mutableStateOf("yes") }
 
 
-    val mContext = LocalContext.current
-    val mYear: Int
-    val mMonth: Int
-    val mDay: Int
-    val mCalendar = Calendar.getInstance()
-    mYear = mCalendar.get(Calendar.YEAR)
-    mMonth = mCalendar.get(Calendar.MONTH)
-    mDay = mCalendar.get(Calendar.DAY_OF_MONTH)
-
-    mCalendar.time = Date()
-    val mDate = remember { mutableStateOf("${LocalDate.now()}") }
-    val mDatePickerDialog = DatePickerDialog(
-        mContext,
-        { _: DatePicker, mYear: Int, mMonth: Int, mDayOfMonth: Int ->
-            mDate.value = "$mYear-${mMonth + 1}-$mDayOfMonth"
-        }, mYear, mMonth, mDay
-    )
 
     Scaffold(
         bottomBar = {
@@ -102,43 +85,6 @@ fun AcftApp(
             Arrangement.spacedBy(20.dp),
             Alignment.CenterHorizontally
         ) {
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(10.dp),
-                Arrangement.SpaceBetween,
-                Alignment.CenterVertically
-            ) {
-                Text("Test date")
-                Button(onClick = {
-                    mDatePickerDialog.show()
-                }) {
-                    Text(text = mDate.value, fontSize = 12.sp, textAlign = TextAlign.Center)
-                }
-            }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(10.dp),
-                Arrangement.SpaceBetween,
-                Alignment.CenterVertically
-            ) {
-                Text("Personal test?")
-                Switch(
-                    checked = personalSelected,
-                    onCheckedChange = { isOn ->
-                        personalSelected = isOn
-                        personal = if (!personalSelected) {
-                            "no"
-                        } else {
-                            "yes"
-                        }
-                    }
-                )
-                Text(personal)
-            }
-
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -207,51 +153,61 @@ fun AcftApp(
                 )
             }
 //            Text(viewModel.getMdlPoints().toString())
-
-//            Row(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .padding(10.dp),
-//                Arrangement.SpaceBetween,
-//                Alignment.CenterVertically
-//            ) {
-//                Text("SPT")
-//                TextField(
-//                    modifier = Modifier.size(width = 150.dp, height = 50.dp),
-//                    value = viewModel.sptRaw.value,
-//                    onValueChange = { newRaw ->
-//                        viewModel.updateSpt(newRaw)
-//                    },
-//                    placeholder = {
-//                        Text(text = "replace with standard format", fontSize = 12.sp)
-//                    },
-//                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
-//                )
-//            }
-//            Text(viewModel.getSptPoints().toString())
-
-//            Row(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .padding(10.dp),
-//                Arrangement.SpaceBetween,
-//                Alignment.CenterVertically
-//            ) {
-//                Text("HRP")
-//                TextField(
-//                    modifier = Modifier.size(width = 150.dp, height = 50.dp),
-//                    value = viewModel.hrpRaw.value,
-//                    onValueChange = { newRaw ->
-////                        viewModel.updateHrp(newRaw)
-////                        viewModel.getHrpMap()
-//                    },
-//                    placeholder = {
-//                        Text(text = "replace with standard format", fontSize = 12.sp)
-//                    },
-//                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
-//                )
-//            }
-////            Text(viewModel.getHrpPoints().toString())
         }
     }
 }
+
+
+//val mContext = LocalContext.current
+//    val mYear: Int
+//    val mMonth: Int
+//    val mDay: Int
+//    val mCalendar = Calendar.getInstance()
+//    mYear = mCalendar.get(Calendar.YEAR)
+//    mMonth = mCalendar.get(Calendar.MONTH)
+//    mDay = mCalendar.get(Calendar.DAY_OF_MONTH)
+//
+//    mCalendar.time = Date()
+//    val mDate = remember { mutableStateOf("${LocalDate.now()}") }
+//    val mDatePickerDialog = DatePickerDialog(
+//        mContext,
+//        { _: DatePicker, mYear: Int, mMonth: Int, mDayOfMonth: Int ->
+//            mDate.value = "$mYear-${mMonth + 1}-$mDayOfMonth"
+//        }, mYear, mMonth, mDay
+//    )
+
+//Row(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(10.dp),
+//                Arrangement.SpaceBetween,
+//                Alignment.CenterVertically
+//            ) {
+//                Text("Test date")
+//                Button(onClick = {
+//                    mDatePickerDialog.show()
+//                }) {
+//                    Text(text = mDate.value, fontSize = 12.sp, textAlign = TextAlign.Center)
+//                }
+//            }
+//            Row(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(10.dp),
+//                Arrangement.SpaceBetween,
+//                Alignment.CenterVertically
+//            ) {
+//                Text("Personal test?")
+//                Switch(
+//                    checked = personalSelected,
+//                    onCheckedChange = { isOn ->
+//                        personalSelected = isOn
+//                        personal = if (!personalSelected) {
+//                            "no"
+//                        } else {
+//                            "yes"
+//                        }
+//                    }
+//                )
+//                Text(personal)
+//            }

@@ -1,198 +1,106 @@
 package com.ods.acftexample.data
 
-
 import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+import kotlinx.serialization.internal.*
 
 @Serializable
-data class Scorecards(
+data class Scorecards (
+    val scorecards: List<Scorecard>
+)
+
+@Serializable
+data class Scorecard (
     val id: String,
     val group: Byte,
     val gender: String,
     val events: List<Event>
-) {
-    @Serializable
-    data class Event(
-        val id: String,
-        val mdl: List<Mdl>? = null,
-        val spt: List<Spt>? = null,
-        val hrp: List<Hrp>? = null,
-        val sdc: List<Sdc>? = null,
-        val plk: List<Plk>? = null,
-        val tmr: List<Tmr>? = null,
-        val wlk: List<Wlk>? = null,
-        val bke: List<Bke>? = null,
-        val swm: List<Swm>? = null,
-        val row: List<Row>? = null
-    ) {
-        @Serializable
-        data class Mdl(
-            val id: String,
-            val points: Short,
-            val raw: Short
-        )
+)
 
-        @Serializable
-        data class Spt(
-            val id: String,
-            val points: Short,
-            val raw: Double
-        )
+@Serializable
+data class Event (
+    val id: String,
+    val mdl: List<Mdl>? = null,
+    val spt: List<Spt>? = null,
+    val hrp: List<Hrp>? = null,
+    val sdc: List<Sdc>? = null,
+    val plk: List<Plk>? = null,
+    val tmr: List<Tmr>? = null,
+    val wlk: List<Wlk>? = null,
+    val bke: List<Bke>? = null,
+    val swm: List<Swm>? = null,
+    val row: List<Row>? = null
+)
 
-        @Serializable
-        data class Hrp(
-            val id: String,
-            val points: Short,
-            val raw: Short
-        )
+@Serializable
+data class Mdl (
+    val id: String,
+    val points: Short,
+    val raw: Short
+)
 
-        @Serializable
-        data class Sdc(
-            val id: String,
-            val points: Short,
-            val raw: String
-        )
+@Serializable
+data class Spt (
+    val id: String,
+    val points: Short,
+    val raw: Double
+)
 
-        @Serializable
-        data class Plk(
-            val id: String,
-            val points: Short,
-            val raw: String
-        )
+@Serializable
+data class Hrp (
+    val id: String,
+    val points: Short,
+    val raw: Short
+)
 
-        @Serializable
-        data class Tmr(
-            val id: String,
-            val points: Short,
-            val raw: String
-        )
+@Serializable
+data class Sdc (
+    val id: String,
+    val points: Short,
+    val raw: String
+)
 
-        @Serializable
-        data class Wlk(
-            val id: String,
-            val points: Short,
-            val raw: String
-        )
+@Serializable
+data class Plk (
+    val id: String,
+    val points: Short,
+    val raw: String
+)
 
-        @Serializable
-        data class Bke(
-            val id: String,
-            val points: Short,
-            val raw: String
-        )
+@Serializable
+data class Tmr (
+    val id: String,
+    val points: Short,
+    val raw: String
+)
 
-        @Serializable
-        data class Swm(
-            val id: String,
-            val points: Short,
-            val raw: String
-        )
+@Serializable
+data class Wlk (
+    val id: String,
+    val points: Short,
+    val raw: String
+)
 
-        @Serializable
-        data class Row(
-            val id: String,
-            val points: Short,
-            val raw: String
-        )
-    }
-}
+@Serializable
+data class Bke (
+    val id: String,
+    val points: Short,
+    val raw: String
+)
 
-//@Serializable
-//data class Scorecards(
-//    val scorecard: List<Scorecard>
-//)
-//
-//@Serializable
-//data class Scorecard(
-//    val id: String,
-//    val group: Byte,
-//    val gender: String,
-//    val events: List<Event>
-//)
-//
-//@Serializable
-//data class Event(
-//    val id: String,
-//    val mdl: List<Mdl>,
-//    val spt: List<Spt>,
-//    val hrp: List<Hrp>,
-//    val sdc: List<Sdc>,
-//    val plk: List<Plk>,
-//    val tmr: List<Tmr>,
-//    val wlk: List<Wlk>,
-//    val bke: List<Bke>,
-//    val swm: List<Swm>,
-//    val row: List<Row>
-//)
-//
-//@Serializable
-//data class Mdl(
-//    val id: String,
-//    val points: Short,
-//    val raw: Short
-//)
-//
-//@Serializable
-//data class Spt(
-//    val id: String,
-//    val points: Short,
-//    val raw: Double
-//)
-//
-//@Serializable
-//data class Hrp(
-//    val id: String,
-//    val points: Short,
-//    val raw: Short
-//)
-//
-//@Serializable
-//data class Sdc(
-//    val id: String,
-//    val points: Short,
-//    val raw: String
-//)
-//
-//@Serializable
-//data class Plk(
-//    val id: String,
-//    val points: Short,
-//    val raw: String
-//)
-//
-//@Serializable
-//data class Tmr(
-//    val id: String,
-//    val points: Short,
-//    val raw: String
-//)
-//
-//@Serializable
-//data class Wlk(
-//    val id: String,
-//    val points: Short,
-//    val raw: String
-//)
-//
-//@Serializable
-//data class Bke(
-//    val id: String,
-//    val points: Short,
-//    val raw: String
-//)
-//
-//@Serializable
-//data class Swm(
-//    val id: String,
-//    val points: Short,
-//    val raw: String
-//)
-//
-//@Serializable
-//data class Row(
-//    val id: String,
-//    val points: Short,
-//    val raw: String
-//)
+@Serializable
+data class Swm (
+    val id: String,
+    val points: Short,
+    val raw: String
+)
+
+@Serializable
+data class Row (
+    val id: String,
+    val points: Short,
+    val raw: String
+)
 
 //Scorecard(
 //id = "", group = 0, gender = "male", events = Scorecard.Event(
