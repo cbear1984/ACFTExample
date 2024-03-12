@@ -5,12 +5,30 @@ import kotlinx.serialization.json.*
 import kotlinx.serialization.internal.*
 
 @Serializable
-data class Scorecards (
-    val scorecards: List<Scorecard>
+data class Scorecards(
+    val scorecards: List<Scorecard> = listOf(Scorecard(
+            id = "",
+            group = 0,
+            gender = "male",
+            events =
+            listOf(Event(
+                id = "",
+                mdl = listOf(Mdl(id = "", points = 0, raw = 0)),
+                spt = listOf(Spt(id = "", points = 0, raw = 0.0)),
+                hrp = listOf(Hrp(id = "", points = 0, raw = 0)),
+                sdc = listOf(Sdc(id = "", points = 0, raw = "0")),
+                plk = listOf(Plk(id = "", points = 0, raw = "0")),
+                tmr = listOf(Tmr(id = "", points = 0, raw = "0")),
+                wlk = listOf(Wlk(id = "", points = 0, raw = "0")),
+                bke = listOf(Bke(id = "", points = 0, raw = "0")),
+                swm = listOf(Swm(id = "", points = 0, raw = "0")),
+                row = listOf(Row(id = "", points = 0, raw = "0"))
+            ))
+        ))
 )
 
 @Serializable
-data class Scorecard (
+data class Scorecard(
     val id: String,
     val group: Byte,
     val gender: String,
@@ -18,7 +36,7 @@ data class Scorecard (
 )
 
 @Serializable
-data class Event (
+data class Event(
     val id: String,
     val mdl: List<Mdl>? = null,
     val spt: List<Spt>? = null,
@@ -33,70 +51,70 @@ data class Event (
 )
 
 @Serializable
-data class Mdl (
+data class Mdl(
     val id: String,
     val points: Short,
     val raw: Short
 )
 
 @Serializable
-data class Spt (
+data class Spt(
     val id: String,
     val points: Short,
     val raw: Double
 )
 
 @Serializable
-data class Hrp (
+data class Hrp(
     val id: String,
     val points: Short,
     val raw: Short
 )
 
 @Serializable
-data class Sdc (
+data class Sdc(
     val id: String,
     val points: Short,
     val raw: String
 )
 
 @Serializable
-data class Plk (
+data class Plk(
     val id: String,
     val points: Short,
     val raw: String
 )
 
 @Serializable
-data class Tmr (
+data class Tmr(
     val id: String,
     val points: Short,
     val raw: String
 )
 
 @Serializable
-data class Wlk (
+data class Wlk(
     val id: String,
     val points: Short,
     val raw: String
 )
 
 @Serializable
-data class Bke (
+data class Bke(
     val id: String,
     val points: Short,
     val raw: String
 )
 
 @Serializable
-data class Swm (
+data class Swm(
     val id: String,
     val points: Short,
     val raw: String
 )
 
 @Serializable
-data class Row (
+data class Row(
     val id: String,
     val points: Short,
     val raw: String

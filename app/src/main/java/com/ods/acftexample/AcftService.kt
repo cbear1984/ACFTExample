@@ -1,8 +1,11 @@
 package com.ods.acftexample
 
-import android.content.Context
-import com.ods.acftexample.data.Event
+import com.ods.acftexample.data.Mdl
+import com.ods.acftexample.data.Spt
 
 interface AcftService {
-    fun getScorecard(age: Byte, gender: String): List<Event>
+    fun getAge(age: Byte)
+    fun getGender(gender: String)
+    fun getMdl(raw: Short): List<Mdl>
+    fun getSpt(raw: Double): List<Spt>
 }
